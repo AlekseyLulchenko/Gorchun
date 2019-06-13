@@ -14,17 +14,6 @@ namespace Gorchun.Core.DataBase
         public static string GetConnectionString()
             => $"Data Source={BuildFullDbFilePath()};Flags=NoVerifyTextAffinity";
 
-        //public static void CreateDbFileIfDoesNotExist()
-        //{
-        //    string databaseFile = BuildFullDbFilePath();
-        //    if (File.Exists(databaseFile))
-        //    {
-        //        return;
-        //    }
-        //    //_logger.Info($"Client database file '{clientDatabaseFile}' doesn't exist.");
-        //    CreateClientDatabase(databaseFile);
-        //    //_logger.Info($"Client database file '{clientDatabaseFile}' was successfully created.");
-        //}
 
         private static string BuildFullDbFilePath()
         {
