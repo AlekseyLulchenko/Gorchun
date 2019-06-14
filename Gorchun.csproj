@@ -72,7 +72,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BaseViewModel.cs" />
+    <Compile Include="UIModels\UiMaterial.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="Core\DataBase\DataBaseFileHelper.cs" />
     <Compile Include="Core\DataBase\MaterialsDbContext.cs" />
     <Compile Include="Core\DataBase\MaterialsProvider.cs" />
@@ -80,14 +81,13 @@
     <Compile Include="UIElements\MainTable.xaml.cs">
       <DependentUpon>MainTable.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UIElements\MainTableViewModel.cs" />
     <Compile Include="UIElements\Properties.xaml.cs">
       <DependentUpon>Properties.xaml</DependentUpon>
     </Compile>
     <Compile Include="UIElements\TextInput.xaml.cs">
       <DependentUpon>TextInput.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UIElements\TextInputViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -140,9 +140,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UIModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\System.Data.SQLite.Core.1.0.110.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('packages\System.Data.SQLite.Core.1.0.110.0\build\net46\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

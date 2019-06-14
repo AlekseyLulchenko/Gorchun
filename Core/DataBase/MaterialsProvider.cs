@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System;
+using System.Data.Entity;
 
 
 namespace Gorchun.Core.DataBase
@@ -78,7 +79,7 @@ namespace Gorchun.Core.DataBase
                     throw new Exception($"Element with specified CAS not found in the database (CAS: {item.Cas})");
                 }
 
-                existingElement.UpdateFrom(item);
+                //existingElement.UpdateFrom(item);
                 context.SaveChanges();
             }
         }
@@ -99,7 +100,48 @@ namespace Gorchun.Core.DataBase
             }
         }
 
-        private void CheckStringForNull(string value, string parameterName)
+
+	    public void FillWithTestData(int count)
+	    {
+		    using (MaterialsDbContext context = new MaterialsDbContext(_connectionString))
+		    {
+			    context.Materials.ForEachAsync(m => context.Materials.Remove(m));
+
+				for (int i = 1; i < count + 1; i++)
+				{
+					context.Materials.Add(new Material()
+					{
+						Cas = "111-" + i.ToString(),
+						Naimenovanie = "Element" + i,
+						Formula = "H2O",
+						MolekuliarniyVes = i + 1.3m,
+						Tkipeniya = i + 1.3m,
+						Tplavleniya = i + 1.3m,
+						Plotnost = i + 1.3m,
+						Viazkost = i + 1.3m,
+						Letuchest = i + 1.3m,
+						Cmax = i + 1.3m,
+						RastvorimostVVode = i + 1.3m,
+						Rastvorimost = i + 1.3m,
+						PH = i + 1.3m,
+						PovNatiazhenie = i + 1.3m,
+						Teratogennost = true,
+						Kantserogennost = null,
+						Mutagennost = true,
+						Imunnogennost = null,
+						Gepatotoksichnost = true,
+						LD50Zheludok = i + 1.3m,
+						LD50kozha = i + 1.3m,
+						LCt50 = i + 1.3m,
+					});
+				}
+
+				context.SaveChanges();
+		    }
+
+		}
+
+		private void CheckStringForNull(string value, string parameterName)
         {
             if (string.IsNullOrWhiteSpace(value))
             {
