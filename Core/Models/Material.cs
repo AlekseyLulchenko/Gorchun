@@ -16,7 +16,7 @@ namespace Gorchun.Core.Models
             Gepatotoksichnost = false;
         }
 
-        // Do not forget to update MaterialsHelper.UpdateFrom method if add/remove properties here.
+        // Do not forget to update MaterialsHelper.UpdateFrom method if add or remove properties here.
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public string Cas { get; set; }
