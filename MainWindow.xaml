@@ -8,21 +8,67 @@
         mc:Ignorable="d"
         Background="Gainsboro"
         Title="Информационная система">
-	<Window.DataContext>
-		<local:MainWindowViewModel/>
-	</Window.DataContext>
-	<Grid>
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
+    <Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="*"/>
-			<ColumnDefinition Width="400"/>
+			<ColumnDefinition Width="350"/>
 		</Grid.ColumnDefinitions>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="30"/>
 			<RowDefinition Height="*"/>
 		</Grid.RowDefinitions>
-		<uielements:MainTable Grid.Column="0" Grid.Row="1"/>
-		<uielements:Properties Grid.Column="1" Grid.Row="1"/>
-	</Grid>
+        <DataGrid
+            Grid.Column="0"
+            Grid.Row="1"
+            FontSize="12"
+            AutoGenerateColumns="False"
+            CanUserAddRows="False"
+            ItemsSource="{Binding Path=Materials}">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="CAS" Width="150" Binding="{Binding Path=Cas}"/>
+                <DataGridTextColumn Header="Наименование" Width="*" Binding="{Binding Path=Naimenovanie}"/>
+                <DataGridTextColumn Header="Брутто формула" Width="150" Binding="{Binding Path=Formula}"/>
+                <!--<DataGridTextColumn Header="Молекулярный вес" Width="*"/>
+                <DataGridTextColumn Header="Tкип, ºС" Width="*"/>
+                <DataGridTextColumn Header="Tпл, ºС" Width="*"/>
+                <DataGridTextColumn Header="Плотность, г/см3" Width="*"/>
+                <DataGridTextColumn Header="Вязкость, Па/с" Width="*"/>
+                <DataGridTextColumn Header="Летучесть, мг/л" Width="*"/>
+                <DataGridTextColumn Header="С мах, мг/мл при 20ºС" Width="*"/>
+                <DataGridTextColumn Header="Растворимость, г/100 г вод" Width="*"/>
+                <DataGridTextColumn Header="Растворимость, г/100 г" Width="*"/>
+                <DataGridTextColumn Header="Растворимость, г/100 г" Width="*"/>
+                <DataGridTextColumn Header="рН" Width="*"/>
+                <DataGridTextColumn Header="Поверхностное натяжение, Дж/м2" Width="*"/>
+                <DataGridTextColumn Header="Тератогенность" Width="*"/>
+                <DataGridTextColumn Header="Канцерогенность" Width="*"/>
+                <DataGridTextColumn Header="Мутагенность" Width="*"/>
+                <DataGridTextColumn Header="Имунногенность" Width="*"/>
+                <DataGridTextColumn Header="Гепатотоксичность" Width="*"/>
+                <DataGridTextColumn Header="LD50, мг/кг (при введении в желудок)" Width="*"/>
+                <DataGridTextColumn Header="LD50, мг/кг (при нанесении на кожу)" Width="*"/>
+                <DataGridTextColumn Header="LСt50, мг/м3" Width="*"/>-->
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <uielements:TextInput LabelText="Молекулярный вес" Value=""/>
+            <uielements:TextInput LabelText="Tкип, ºС" Value=""/>
+            <uielements:TextInput LabelText="Tпл, ºС" Value=""/>
+            <uielements:TextInput LabelText="Плотность, г/см3" Value=""/>
+            <uielements:TextInput LabelText="Вязкость, Па/с" Value=""/>
+            <uielements:TextInput LabelText="Летучесть, мг/л" Value=""/>
+            <uielements:TextInput LabelText="С мах, мг/мл при 20ºС" Value=""/>
+            <uielements:TextInput LabelText="Растворимость, г/100 г вод" Value=""/>
+            <uielements:TextInput LabelText="Растворимость, г/100 г" Value=""/>
+            <uielements:TextInput LabelText="Растворимость, г/100 г" Value=""/>
+            <uielements:TextInput LabelText="рН" Value=""/>
+            <uielements:TextInput LabelText="Поверхностное натяжение, Дж/м2" Value=""/>
+        </StackPanel>
+    </Grid>
 </Window>
 
     

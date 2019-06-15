@@ -72,18 +72,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Core\Models\MaterialsHelper.cs" />
     <Compile Include="UIModels\UiMaterial.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="Core\DataBase\DataBaseFileHelper.cs" />
     <Compile Include="Core\DataBase\MaterialsDbContext.cs" />
     <Compile Include="Core\DataBase\MaterialsProvider.cs" />
     <Compile Include="Core\Models\Material.cs" />
-    <Compile Include="UIElements\MainTable.xaml.cs">
-      <DependentUpon>MainTable.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UIElements\Properties.xaml.cs">
-      <DependentUpon>Properties.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UIElements\TextInput.xaml.cs">
       <DependentUpon>TextInput.xaml</DependentUpon>
     </Compile>
@@ -100,14 +95,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="UIElements\MainTable.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UIElements\Properties.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="UIElements\TextInput.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
