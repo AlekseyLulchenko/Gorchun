@@ -56,19 +56,20 @@
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Grid.Column="1" Grid.Row="1">
-            <uielements:TextInput LabelText="Молекулярный вес" Value="{Binding SelectedMaterial.MolekuliarniyVes}"/>
-            <uielements:TextInput LabelText="Tкип, ºС" Value=""/>
-            <uielements:TextInput LabelText="Tпл, ºС" Value=""/>
-            <uielements:TextInput LabelText="Плотность, г/см3" Value=""/>
-            <uielements:TextInput LabelText="Вязкость, Па/с" Value=""/>
-            <uielements:TextInput LabelText="Летучесть, мг/л" Value=""/>
-            <uielements:TextInput LabelText="С мах, мг/мл при 20ºС" Value=""/>
-            <uielements:TextInput LabelText="Растворимость, г/100 г вод" Value=""/>
-            <uielements:TextInput LabelText="Растворимость, г/100 г" Value=""/>
-            <uielements:TextInput LabelText="Растворимость, г/100 г" Value=""/>
-            <uielements:TextInput LabelText="рН" Value=""/>
-            <uielements:TextInput LabelText="Поверхностное натяжение, Дж/м2" Value=""/>
+            <uielements:TextInput x:Name ="TextInput" LabelText="Молекулярный вес" Value="{Binding SelectedMaterial.MolekuliarniyVes, Mode=TwoWay}"/>
+            <uielements:TextInput LabelText="Tкип, ºС" Value="{Binding SelectedMaterial.Tkipeniya, Mode=TwoWay}"/>
+            <uielements:TextInput LabelText="Tпл, ºС" Value="{Binding SelectedMaterial.Tplavleniya, Mode=TwoWay}"/>
+            <uielements:TextInput LabelText="Плотность, г/см3" Value="{Binding SelectedMaterial.Plotnost, Mode=TwoWay}"/>
+            <uielements:TextInput LabelText="Вязкость, Па/с" Value="{Binding SelectedMaterial.Viazkost, Mode=TwoWay}"/>
+            <uielements:TextInput LabelText="Летучесть, мг/л" Value="{Binding SelectedMaterial.Letuchest, Mode=TwoWay}"/>
+            <uielements:TextInput LabelText="С мах, мг/мл при 20ºС" Value="{Binding SelectedMaterial.Cmax, Mode=TwoWay}"/>
+            <uielements:TextInput LabelText="Растворимость, г/100 г вод" Value="{Binding SelectedMaterial.RastvorimostVVode, Mode=TwoWay}"/>
+            <uielements:TextInput LabelText="Растворимость, г/100 г" Value="{Binding SelectedMaterial.Rastvorimost, Mode=TwoWay}"/>
+            <!--<uielements:TextInput LabelText="Растворимость, г/100 г" Value="{Binding SelectedMaterial.PH, Mode=TwoWay}"/>-->
+            <uielements:TextInput LabelText="рН" Value="{Binding SelectedMaterial.PH, Mode=TwoWay}"/>
+            <uielements:TextInput LabelText="Поверхностное натяжение, Дж/м2" Value="{Binding SelectedMaterial.PovNatiazhenie, Mode=TwoWay}"/>
         </StackPanel>
+        <Button Click="Button_Click"/>
     </Grid>
 </Window>
 

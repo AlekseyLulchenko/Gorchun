@@ -17,7 +17,7 @@ namespace Gorchun.UI.ViewModels
             {
                 if (_selectedMaterial == value) { return; }
                 _selectedMaterial = value;
-                OnPropertyChanged(nameof(_selectedMaterial));
+                OnPropertyChanged(nameof(SelectedMaterial));
             }
         }
 
