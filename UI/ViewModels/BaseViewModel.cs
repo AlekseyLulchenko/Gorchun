@@ -2,7 +2,7 @@
 using System.ComponentModel;
 
 
-namespace Gorchun.ViewModels
+namespace Gorchun.UI.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {

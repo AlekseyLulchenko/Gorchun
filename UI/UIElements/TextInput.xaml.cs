@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 using System.Runtime.CompilerServices;
 using System.ComponentModel;
 
-namespace Gorchun.UIElements
+namespace Gorchun.UI.UIElements
 {
     /// <summary>
     /// Interaction logic for TextInput.xaml

@@ -6,7 +6,7 @@ using System;
 using System.Data.Entity;
 
 
-namespace Gorchun.Core.DataBase
+namespace Gorchun.DataBase
 {
     public class MaterialsProvider
     {

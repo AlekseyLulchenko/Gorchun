@@ -35,7 +35,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Gorchun.App</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=8.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>packages\AutoMapper.8.1.1\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -72,18 +78,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Core\MyAutoMapper.cs" />
+    <Compile Include="UI\MaterialsManager.cs" />
     <Compile Include="Core\Models\MaterialsHelper.cs" />
-    <Compile Include="UIModels\UiMaterial.cs" />
-    <Compile Include="ViewModels\BaseViewModel.cs" />
-    <Compile Include="Core\DataBase\DataBaseFileHelper.cs" />
-    <Compile Include="Core\DataBase\MaterialsDbContext.cs" />
-    <Compile Include="Core\DataBase\MaterialsProvider.cs" />
+    <Compile Include="UI\UIModels\UiMaterial.cs" />
+    <Compile Include="UI\ViewModels\BaseViewModel.cs" />
+    <Compile Include="DataBase\DataBaseFileHelper.cs" />
+    <Compile Include="DataBase\MaterialsDbContext.cs" />
+    <Compile Include="DataBase\MaterialsProvider.cs" />
     <Compile Include="Core\Models\Material.cs" />
-    <Compile Include="UIElements\TextInput.xaml.cs">
+    <Compile Include="UI\UIElements\TextInput.xaml.cs">
       <DependentUpon>TextInput.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Page Include="MainWindow.xaml">
+    <Compile Include="UI\ViewModels\MainWindowViewModel.cs" />
+    <Page Include="UI\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -91,11 +99,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="UI\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="UIElements\TextInput.xaml">
+    <Page Include="UI\UIElements\TextInput.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,10 +1,10 @@
-﻿<Window x:Class="Gorchun.MainWindow"
+﻿<Window x:Class="Gorchun.UI.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:uielements="clr-namespace:Gorchun.UIElements"
-		xmlns:local="clr-namespace:Gorchun.ViewModels"
+        xmlns:uielements="clr-namespace:Gorchun.UI.UIElements"
+		xmlns:local="clr-namespace:Gorchun.UI.ViewModels"
         mc:Ignorable="d"
         Background="Gainsboro"
         Title="Информационная система">
@@ -26,7 +26,8 @@
             FontSize="12"
             AutoGenerateColumns="False"
             CanUserAddRows="False"
-            ItemsSource="{Binding Path=Materials}">
+            ItemsSource="{Binding Path=Materials}"
+            SelectedItem="{Binding SelectedMaterial}">
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="CAS" Width="150" Binding="{Binding Path=Cas}"/>
@@ -55,7 +56,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Grid.Column="1" Grid.Row="1">
-            <uielements:TextInput LabelText="Молекулярный вес" Value=""/>
+            <uielements:TextInput LabelText="Молекулярный вес" Value="{Binding SelectedMaterial.MolekuliarniyVes}"/>
             <uielements:TextInput LabelText="Tкип, ºС" Value=""/>
             <uielements:TextInput LabelText="Tпл, ºС" Value=""/>
             <uielements:TextInput LabelText="Плотность, г/см3" Value=""/>

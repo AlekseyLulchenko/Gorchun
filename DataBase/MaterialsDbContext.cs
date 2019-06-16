@@ -2,7 +2,7 @@
 using System.Data.SQLite;
 using Gorchun.Core.Models;
 
-namespace Gorchun.Core.DataBase
+namespace Gorchun.DataBase
 {
     public class MaterialsDbContext : DbContext
     {

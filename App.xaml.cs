@@ -13,5 +13,6 @@ namespace Gorchun
     /// </summary>
     public partial class App : Application
     {
+        
     }
 }
