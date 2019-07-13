@@ -13,16 +13,19 @@
     </Window.DataContext>
     <Grid>
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
 			<ColumnDefinition Width="350"/>
 		</Grid.ColumnDefinitions>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="30"/>
+            <RowDefinition Height="20"/>
 			<RowDefinition Height="*"/>
 		</Grid.RowDefinitions>
         <DataGrid
             Grid.Column="0"
-            Grid.Row="1"
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
             FontSize="12"
             AutoGenerateColumns="False"
             CanUserAddRows="False"
@@ -55,7 +58,7 @@
                 <DataGridTextColumn Header="LСt50, мг/м3" Width="*"/>-->
             </DataGrid.Columns>
         </DataGrid>
-        <StackPanel Grid.Column="1" Grid.Row="1">
+        <StackPanel Grid.Column="2" Grid.Row="1" Grid.RowSpan="2">
             <uielements:TextInput x:Name ="TextInput" LabelText="Молекулярный вес" Value="{Binding SelectedMaterial.MolekuliarniyVes, Mode=TwoWay}"/>
             <uielements:TextInput LabelText="Tкип, ºС" Value="{Binding SelectedMaterial.Tkipeniya, Mode=TwoWay}"/>
             <uielements:TextInput LabelText="Tпл, ºС" Value="{Binding SelectedMaterial.Tplavleniya, Mode=TwoWay}"/>
@@ -69,7 +72,7 @@
             <uielements:TextInput LabelText="рН" Value="{Binding SelectedMaterial.PH, Mode=TwoWay}"/>
             <uielements:TextInput LabelText="Поверхностное натяжение, Дж/м2" Value="{Binding SelectedMaterial.PovNatiazhenie, Mode=TwoWay}"/>
         </StackPanel>
-        <Button Click="Button_Click"/>
+        <Button Grid.Column="0" Grid.Row="1" Click="Button_Click"> Добавить </Button>
     </Grid>
 </Window>
 
