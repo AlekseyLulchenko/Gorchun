@@ -7,21 +7,33 @@
 		xmlns:local="clr-namespace:Gorchun.UI.ViewModels"
         mc:Ignorable="d"
         Background="Gainsboro"
+        Name="MainW"
         Title="Информационная система">
     <Window.DataContext>
         <local:MainWindowViewModel/>
     </Window.DataContext>
+   
     <Grid>
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="100"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="*"/>
-			<ColumnDefinition Width="350"/>
-		</Grid.ColumnDefinitions>
-		<Grid.RowDefinitions>
-			<RowDefinition Height="30"/>
+            <ColumnDefinition Width="350"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
-			<RowDefinition Height="*"/>
-		</Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.ColumnSpan="3">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Созадть" Command="{Binding OpenNewElementWindowCommand}"></MenuItem>
+                <MenuItem Header="Выход" Command="{Binding CloseWindowCommand}"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Редактировать">
+                <MenuItem Header="Изменить"></MenuItem>
+                <MenuItem Header="Удалить" Command="ApplicationCommands.Close"></MenuItem>
+            </MenuItem>
+        </Menu>
         <DataGrid
             Grid.Column="0"
             Grid.Row="2"
@@ -72,7 +84,6 @@
             <uielements:TextInput LabelText="рН" Value="{Binding SelectedMaterial.PH, Mode=TwoWay}"/>
             <uielements:TextInput LabelText="Поверхностное натяжение, Дж/м2" Value="{Binding SelectedMaterial.PovNatiazhenie, Mode=TwoWay}"/>
         </StackPanel>
-        <Button Grid.Column="0" Grid.Row="1" Click="Button_Click"> Добавить </Button>
     </Grid>
 </Window>
 

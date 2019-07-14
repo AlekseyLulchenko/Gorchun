@@ -1,11 +1,16 @@
 ﻿using System.Collections.ObjectModel;
-using Gorchun.DataBase;
 using Gorchun.UI.UIModels;
+using Gorchun.UI.Commands;
+using System.Windows;
 
 namespace Gorchun.UI.ViewModels
 {
 	public class MainWindowViewModel : BaseViewModel
 	{
+        public RelayCommand OpenNewElementWindowCommand { get; set; }
+
+        protected override string CurrentWindowName => "MainW";
+
         private UiMaterial _selectedMaterial;
         public UiMaterial SelectedMaterial
         {
@@ -34,10 +39,23 @@ namespace Gorchun.UI.ViewModels
 		}
 
 
-		public MainWindowViewModel()
+        public MainWindowViewModel()
 		{
             MaterialsManager manager = new MaterialsManager();
 			Materials = new ObservableCollection<UiMaterial>(manager.GetAll());
-		}
-	}
+
+            OpenNewElementWindowCommand = new RelayCommand(OpenNewElementWindow, CanOpenNewElementWindow);
+        }
+
+        private void OpenNewElementWindow(object param)
+        {
+            NewElementWindow newElementWindow = new NewElementWindow();
+            newElementWindow.Show();
+        }
+
+        private bool CanOpenNewElementWindow(object param)
+        {
+            return true;
+        }
+    }
 }
