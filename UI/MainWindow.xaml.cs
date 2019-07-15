@@ -18,10 +18,5 @@ namespace Gorchun.UI
 			//provider.FillWithTestData(100);
 			List<Material> all = provider.GetAll();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            string cas = this.TextInput.Value;
-        }
     }
 }

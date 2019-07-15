@@ -7,7 +7,7 @@
 		xmlns:local="clr-namespace:Gorchun.UI.ViewModels"
         mc:Ignorable="d"
         Background="Gainsboro"
-        Name="MainW"
+        Name="WindowMain"
         Title="Информационная система">
     <Window.DataContext>
         <local:MainWindowViewModel/>
@@ -71,7 +71,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Grid.Column="2" Grid.Row="1" Grid.RowSpan="2">
-            <uielements:TextInput x:Name ="TextInput" LabelText="Молекулярный вес" Value="{Binding SelectedMaterial.MolekuliarniyVes, Mode=TwoWay}"/>
+            <uielements:TextInput LabelText="Молекулярный вес" Value="{Binding SelectedMaterial.MolekuliarniyVes, Mode=TwoWay}"/>
             <uielements:TextInput LabelText="Tкип, ºС" Value="{Binding SelectedMaterial.Tkipeniya, Mode=TwoWay}"/>
             <uielements:TextInput LabelText="Tпл, ºС" Value="{Binding SelectedMaterial.Tplavleniya, Mode=TwoWay}"/>
             <uielements:TextInput LabelText="Плотность, г/см3" Value="{Binding SelectedMaterial.Plotnost, Mode=TwoWay}"/>
