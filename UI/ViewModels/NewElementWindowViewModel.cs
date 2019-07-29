@@ -25,8 +25,6 @@ namespace Gorchun.UI.ViewModels
             }
         }
 
-        
-
         private MaterialsManager _manager;
 
         public NewElementWindowViewModel()
@@ -69,7 +67,9 @@ namespace Gorchun.UI.ViewModels
 
         private bool CanAddNew(object parameter)
         {
-            return true;
+            return 
+                string.IsNullOrWhiteSpace(CurrentMaterial.Cas) == false &&
+                string.IsNullOrWhiteSpace(CurrentMaterial.Naimenovanie) == false;
         }
     }
 }

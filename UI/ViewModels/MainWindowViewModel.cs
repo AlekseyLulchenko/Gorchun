@@ -12,6 +12,7 @@ namespace Gorchun.UI.ViewModels
 	{
         public RelayCommand OpenNewElementWindowCommand { get; set; }
         public RelayCommand DeleteElementCommand { get; set; }
+        public RelayCommand EditElementCommand { get; set; }
 
         private MaterialsManager _manager;
 
@@ -51,6 +52,7 @@ namespace Gorchun.UI.ViewModels
             RefreshMainList();
             OpenNewElementWindowCommand = new RelayCommand(OpenNewElementWindow, CanOpenNewElementWindow);
             DeleteElementCommand = new RelayCommand(DeleteElement, CanDeleteElement);
+            EditElementCommand = new RelayCommand(OpenEditElementWindow, CanOpenEditElementWindowBeExecute);
         }
 
         private void DeleteElement(object param)
@@ -105,13 +107,38 @@ namespace Gorchun.UI.ViewModels
         private void OpenNewElementWindow(object param)
         {
             NewElementWindow newElementWindow = new NewElementWindow();
-            newElementWindow.Closed += OnNewElementWindowClosed; 
+            newElementWindow.Closed += OnNewElementWindowClosed;
             newElementWindow.Show();
+        }
+
+        private void OpenEditElementWindow(object param)
+        {
+            if (SelectedMaterial == null)
+            {
+                MessageBox.Show("выберите элемент!", "Элемент не выбран!", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
+            EditElementWindow editElementWindow = new EditElementWindow();
+            editElementWindow.Closed += OnEditElementWindowClosed;
+            EditElementWindowViewModel editViewModel = new EditElementWindowViewModel(SelectedMaterial);
+            editElementWindow.DataContext = editViewModel;
+            editElementWindow.Show();
+        }
+
+        private bool CanOpenEditElementWindowBeExecute(object param)
+        {
+            return SelectedMaterial != null;
         }
 
         private bool CanOpenNewElementWindow(object param)
         {
             return true;
+        }
+
+        private void OnEditElementWindowClosed(object sender, EventArgs arg)
+        {
+            RefreshMainList();
         }
 
         private void OnNewElementWindowClosed(object sender, EventArgs arg)

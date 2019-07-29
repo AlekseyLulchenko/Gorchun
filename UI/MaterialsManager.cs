@@ -41,6 +41,13 @@ namespace Gorchun.UI
         }
 
 
+        public void Update(UiMaterial element)
+        {
+            CheckObjectForNull(element, nameof(element));
+            _provider.UpdateExistingFrom(_mapper.Map<Material>(element));
+        }
+
+
         public void DeleteById(string cas)
         {
             CheckStringForNull(cas, nameof(cas));

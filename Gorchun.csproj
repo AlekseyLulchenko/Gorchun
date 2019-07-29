@@ -80,6 +80,9 @@
     </ApplicationDefinition>
     <Compile Include="Core\MyAutoMapper.cs" />
     <Compile Include="UI\Commands\RelayCommand.cs" />
+    <Compile Include="UI\EditElementWindow.xaml.cs">
+      <DependentUpon>EditElementWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\MaterialsManager.cs" />
     <Compile Include="Core\Models\MaterialsHelper.cs" />
     <Compile Include="UI\NewElementWindow.xaml.cs">
@@ -94,8 +97,13 @@
     <Compile Include="UI\UIElements\TextInput.xaml.cs">
       <DependentUpon>TextInput.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\ViewModels\EditElementWindowViewModel.cs" />
     <Compile Include="UI\ViewModels\MainWindowViewModel.cs" />
     <Compile Include="UI\ViewModels\NewElementWindowViewModel.cs" />
+    <Page Include="UI\EditElementWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

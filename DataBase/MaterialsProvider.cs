@@ -79,7 +79,7 @@ namespace Gorchun.DataBase
                     throw new Exception($"Element with specified CAS not found in the database (CAS: {item.Cas})");
                 }
 
-                //existingElement.UpdateFrom(item);
+                existingElement.UpdateFrom(item);
                 context.SaveChanges();
             }
         }
