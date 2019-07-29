@@ -31,7 +31,7 @@
             </MenuItem>
             <MenuItem Header="Редактировать">
                 <MenuItem Header="Изменить"></MenuItem>
-                <MenuItem Header="Удалить" Command="ApplicationCommands.Close"></MenuItem>
+                <MenuItem Header="Удалить" Command="{Binding DeleteElementCommand}"></MenuItem>
             </MenuItem>
         </Menu>
         <DataGrid

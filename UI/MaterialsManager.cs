@@ -44,6 +44,7 @@ namespace Gorchun.UI
         public void DeleteById(string cas)
         {
             CheckStringForNull(cas, nameof(cas));
+            _provider.DeleteById(cas);
         }
 
         private void CheckStringForNull(string value, string parameterName)
