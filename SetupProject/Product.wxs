@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="576F0649-1720-48D9-A97E-0CF8CA13391F"
+          Name="Information system"
+          Language="1033"
+          Version="1.0.0.0"
+          Manufacturer="Artemyev Igor"
+          UpgradeCode="9d597b27-f734-46c7-9dc8-d5f409598fc4">
+		<Package Id="*" InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of Information system is already installed." />
+		<MediaTemplate EmbedCab="yes"/>
+
+		<Feature Id="ProductFeature" Title="Information System" Level="1">
+			<ComponentRef Id="Main" />
+      <ComponentRef Id="DataBase"/>
+      <ComponentRef Id="x64_SQLite_Interop"/>
+      <ComponentRef Id="x86_SQLite_Interop"/>
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="InformationSystem">
+          <Component Id='Main' Guid='4AD3F0B9-D0E4-48BD-87F0-E424EE2EC438'>
+            <File Source='..\bin\Release\Gorchun.exe'/>
+            <File Source='..\bin\Release\AutoMapper.dll'/>
+            <File Source='..\bin\Release\AutoMapper.xml'/>
+            <File Source='..\bin\Release\EntityFramework.dll' />
+            <File Source='..\bin\Release\EntityFramework.SqlServer.dll'/>
+            <File Source='..\bin\Release\EntityFramework.SqlServer.xml' />
+            <File Source='..\bin\Release\EntityFramework.xml'/>
+            <File Source='..\bin\Release\Gorchun.exe.config' />
+            <File Source='..\bin\Release\System.Data.SQLite.dll'/>
+            <File Source='..\bin\Release\System.Data.SQLite.dll.config'/>
+            <File Source='..\bin\Release\System.Data.SQLite.EF6.dll' />
+            <File Source='..\bin\Release\System.Data.SQLite.Linq.dll' />
+            <File Source='..\bin\Release\System.Data.SQLite.xml'/>
+          </Component>
+          
+          <Directory Id="Data" Name="Data">
+            <Component Id='DataBase' Guid='5B6B384F-2FB0-4F01-A8A4-83A521B30935'>
+              <File Source='..\Data\Database.db'/>
+            </Component>
+          </Directory>
+          
+          <Directory Id="x64_SQLite_Interop_Dir" Name="x64">
+            <Component Id='x64_SQLite_Interop' Guid='DEDCD850-D889-42C6-8A49-7FFB5E5E4DBD'>
+              <File Id='x64_SQLite_Interop_dll' Source='..\bin\Release\x64\SQLite.Interop.dll'/>
+            </Component>
+          </Directory>
+          
+          <Directory Id="x86_SQLite_Interop_Dir" Name="x86">
+            <Component Id='x86_SQLite_Interop' Guid='CED5F145-E5DB-42E9-9C97-F844D1D99595'>
+              <File Id='x86_SQLite_Interop_dll' Source='..\bin\Release\x86\SQLite.Interop.dll'/>
+            </Component>
+          </Directory>
+          
+        </Directory>
+			</Directory>
+		</Directory>
+	</Fragment>
+</Wix>
