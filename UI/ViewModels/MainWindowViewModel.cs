@@ -13,6 +13,7 @@ namespace Gorchun.UI.ViewModels
         public RelayCommand OpenNewElementWindowCommand { get; set; }
         public RelayCommand DeleteElementCommand { get; set; }
         public RelayCommand EditElementCommand { get; set; }
+        public RelayCommand OpenCalculateWindowCommand { get; set; }
 
         private MaterialsManager _manager;
 
@@ -53,6 +54,7 @@ namespace Gorchun.UI.ViewModels
             OpenNewElementWindowCommand = new RelayCommand(OpenNewElementWindow, CanOpenNewElementWindow);
             DeleteElementCommand = new RelayCommand(DeleteElement, CanDeleteElement);
             EditElementCommand = new RelayCommand(OpenEditElementWindow, CanOpenEditElementWindowBeExecute);
+            OpenCalculateWindowCommand = new RelayCommand(OpenCalculateWindow, CanOpenCalculateWindow);
         }
 
         private void DeleteElement(object param)
@@ -150,5 +152,26 @@ namespace Gorchun.UI.ViewModels
         {
             Materials = new ObservableCollection<UiMaterial>(_manager.GetAll());
         }
+
+        private void OpenCalculateWindow(object param)
+        {
+            if (SelectedMaterial == null)
+            {
+                MessageBox.Show("выберите элемент!", "Элемент не выбран!", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
+            CalculateWindow calculateWindow = new CalculateWindow();
+            //calculateWindow.Closed += ;
+            CalculateViewModel calculateViewModel = new CalculateViewModel(SelectedMaterial);
+            calculateWindow.DataContext = calculateViewModel;
+            calculateWindow.Show();
+        }
+
+        private bool CanOpenCalculateWindow(object param)
+        {
+            return SelectedMaterial != null;
+        }
+
     }
 }

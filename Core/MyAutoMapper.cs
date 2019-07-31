@@ -17,7 +17,12 @@ namespace Gorchun.Core
 
         static MyAutoMapper()
         {
-            _config = new MapperConfiguration(cfg => cfg.CreateMap<Material, UiMaterial>().ReverseMap());
+            _config = new MapperConfiguration(cfg => 
+                {
+                    cfg.CreateMap<Material, UiMaterial>().ReverseMap();
+                    cfg.CreateMap<ImpactParameters, UiImpactParameters>().ReverseMap();
+                });
+
             Mapper = _config.CreateMapper();
         }
     }

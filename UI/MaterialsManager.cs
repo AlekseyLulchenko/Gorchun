@@ -54,6 +54,12 @@ namespace Gorchun.UI
             _provider.DeleteById(cas);
         }
 
+        public CalculationResult CalculateImpact(UiImpactParameters impactParameters, UiMaterial material)
+        {
+            ImpactCalculator calculator = new ImpactCalculator();
+            return calculator.Calculate(_mapper.Map<ImpactParameters>(impactParameters), _mapper.Map<Material>(material));
+        }
+
         private void CheckStringForNull(string value, string parameterName)
         {
             if (string.IsNullOrWhiteSpace(value))

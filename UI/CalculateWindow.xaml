@@ -1,0 +1,35 @@
+﻿<Window x:Class="Gorchun.UI.CalculateWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Gorchun.UI.ViewModels"
+        xmlns:uielements="clr-namespace:Gorchun.UI.UIElements"
+        mc:Ignorable="d"
+        Name="WindowCalculate"
+        Background="Gainsboro"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Title="Определение площади и степени поражения кожных покровов" Height="350" Width="800">
+    <Grid>
+
+        <StackPanel Margin="10">
+            <uielements:TextInput LabelText="Шея спереди" Value="{Binding ImpactParameters.Sheya_Speredi, Mode=TwoWay}"/>
+            <uielements:TextInput LabelText="Грудь и живот" Value="{Binding ImpactParameters.Grud_I_Zhivot, Mode=TwoWay}"/>
+            <uielements:TextInput LabelText="Шея сзади" Value="{Binding ImpactParameters.Sheya_Szadi, Mode=TwoWay}"/>
+            <uielements:TextInput LabelText="Спина" Value="{Binding ImpactParameters.Spina, Mode=TwoWay}"/>
+            <uielements:TextInput LabelText="Плечо" Value="{Binding ImpactParameters.Plecho, Mode=TwoWay}"/>
+            <uielements:TextInput LabelText="Предплечье" Value="{Binding ImpactParameters.Predplechye, Mode=TwoWay}"/>
+            <uielements:TextInput LabelText="Кисть" Value="{Binding ImpactParameters.Kist, Mode=TwoWay}"/>
+            <uielements:TextInput LabelText="Ягодица" Value="{Binding ImpactParameters.Yagoditsa, Mode=TwoWay}"/>
+            <uielements:TextInput LabelText="Бедро с ягодичной обл." Value="{Binding ImpactParameters.Bedro, Mode=TwoWay}"/>
+            <uielements:TextInput LabelText="Стопа" Value="{Binding ImpactParameters.Stopa, Mode=TwoWay}"/>
+            
+            <DockPanel HorizontalAlignment="Right" Margin="1 10 1 1">
+                <Button Content="Расчитать воздействие" Command="{Binding CalculateCommand}" Width="200" Height="25"/>
+                <Button Content="Закрыть" Command="{Binding CloseWindowCommand}" Width="100"/>
+            </DockPanel>
+
+        </StackPanel>
+    </Grid>
+</Window>
