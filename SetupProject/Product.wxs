@@ -17,14 +17,18 @@
       <ComponentRef Id="x64_SQLite_Interop"/>
       <ComponentRef Id="x86_SQLite_Interop"/>
 		</Feature>
+    <Icon Id="Gorchun.exe" SourceFile="..\bin\Release\Gorchun.exe" />
 	</Product>
 
 	<Fragment>
 		<Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="DesktopFolder" Name="Desktop"/>
 			<Directory Id="ProgramFilesFolder">
 				<Directory Id="INSTALLFOLDER" Name="InformationSystem">
           <Component Id='Main' Guid='4AD3F0B9-D0E4-48BD-87F0-E424EE2EC438'>
-            <File Source='..\bin\Release\Gorchun.exe'/>
+            <File Source='..\bin\Release\Gorchun.exe'>
+              <Shortcut Id="DesktopShortcut" Directory="DesktopFolder" Icon="Gorchun.exe" Name="Information system"  Advertise="yes"/>
+            </File>
             <File Source='..\bin\Release\AutoMapper.dll'/>
             <File Source='..\bin\Release\AutoMapper.xml'/>
             <File Source='..\bin\Release\EntityFramework.dll' />
